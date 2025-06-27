@@ -1,53 +1,24 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-
-</script>
-
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
     <div>
       <h1>Welcome to Drag'n'Dropkick</h1>
     </div>
-    
-    <img src="/src/assets/jamie_training.jpg" alt="Young Jamie doing Drunken Style training." width="70%">
+    <h3>'Throwing Stuff Since 1999'</h3>
   </header>
 
   <main>
-    <TheWelcome />
+    <img
+      src="/src/assets/jamie_training.jpg"
+      alt="Young Jamie doing Drunken Style training."
+      width="100%"
+    />
   </main>
 </template>
 
+<script setup></script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+body {
+  background-color: cadetblue;
 }
 </style>
