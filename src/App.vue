@@ -1,21 +1,25 @@
 <template>
   <header>
     <div>
-      <h1>Welcome to Drag'n'Dropkick</h1>
+      <h1 class="title">Welcome to Drag'n'Dropkick</h1>
     </div>
-    <h3>'Throwing Stuff Since 1999'</h3>
+    <h2 class="subtitle">'Throwing Stuff Since 1999'</h2>
   </header>
 
   <main>
-    <img
+    <!-- <img
       src="/src/assets/jamie_training.jpg"
       alt="Young Jamie doing Drunken Style training."
       width="100%"
-    />
+    /> -->
+    <br><br>
+    <ArkPullsCalculator/>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import ArkPullsCalculator from './components/ArkPullsCalculator.vue';
+</script>
 
 <style scoped>
 body {
