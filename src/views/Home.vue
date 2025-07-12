@@ -4,7 +4,7 @@
           <div class="container">
               <h1 class="title is-1">Welcome to Drag'n'Dropkick</h1>
               <h3 class="subtitle is-3">'Throwing Stuff Since 1999'</h3>
-              <img src="\src\assets\dragndropkick_logo.png" alt="Drag'n'dropkick's logo, the famous wrestler Zangief from Street Fighter videogame is dropkicking in the classic drag and drop zone!" width="50%">
+              <img src="\src\assets\dragndropkick_logo.png" alt="Drag'n'dropkick's logo, the famous wrestler Zangief from Street Fighter videogame is dropkicking in the classic drag and drop zone!" width="40%">
           </div>
         <div class="container">
       </div>

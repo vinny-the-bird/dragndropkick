@@ -1,6 +1,6 @@
 <template>
   <header>
-NavBar />
+<NavBar />
  </header>
   <main>
 
@@ -14,7 +14,8 @@ NavBar />
 <script setup>
 import ArkPullsCalculator from './views/ArkPullsCalculator.vue';
 import NavBar from './components/NavBar.vue';
-/script>
+import { RouterView } from 'vue-router';
+</script>
 
 <style scoped>
 .box {
