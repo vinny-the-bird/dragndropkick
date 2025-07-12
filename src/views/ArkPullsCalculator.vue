@@ -1,7 +1,18 @@
 <template>
- <div class="box">
+  <div class="box">
     <h1 class="title is-4">Arknights Pulls Calculator</h1>
-    <button class="button" @click="resetFields">Reset all fields</button>
+    <div>
+      <p>
+        <strong>How to use:</strong> simply check your game and enter your
+        different currencies below. It will calculate your number of pulls on
+        the fly. <br />A "reset all" button is also available, free of charge.
+        😁
+      </p>
+    </div>
+    <br />
+    <div class="container">
+      <button class="button" @click="resetFields">Reset all fields</button>
+    </div>
     <section class="section">
       <div class="container is-flex is-justify-content-left">
         <div class="fixed-grid">
@@ -17,9 +28,12 @@
                 <input
                   v-model.number="orundum"
                   type="number"
-                  min="0"
                   placeholder="0"
-                  min-width="100px"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  @keydown="blockInvalidInput"
+                  @paste="handlePaste"
                 />
               </div>
             </div>
@@ -35,8 +49,12 @@
                 <input
                   v-model.number="op"
                   type="number"
-                  min="0"
                   placeholder="0"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  @keydown="blockInvalidInput"
+                  @paste="handlePaste"
                 />
               </div>
             </div>
@@ -54,8 +72,12 @@
                 <input
                   v-model.number="permitTen"
                   type="number"
-                  min="0"
                   placeholder="0"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  @keydown="blockInvalidInput"
+                  @paste="handlePaste"
                 />
               </div>
             </div>
@@ -73,8 +95,12 @@
                 <input
                   v-model.number="permitSingle"
                   type="number"
-                  min="0"
                   placeholder="0"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  @keydown="blockInvalidInput"
+                  @paste="handlePaste"
                 />
               </div>
             </div>
@@ -130,7 +156,30 @@ function resetFields() {
   permitTen.value = 0;
   permitSingle.value = 0;
 }
+
+function blockInvalidInput(e) {
+  const allowedKeys = [
+    "Backspace",
+    "Tab",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowUp",
+    "ArrowDown",
+    "Delete",
+  ];
+  const isDigit = /^[0-9]$/.test(e.key);
+
+  if (!isDigit && !allowedKeys.includes(e.key)) {
+    e.preventDefault();
+  }
+}
+
+function handlePaste(e) {
+  const text = e.clipboardData.getData("text");
+  if (!/^\d+$/.test(text)) {
+    e.preventDefault();
+  }
+}
 </script>
 
 <style scoped></style>
-
