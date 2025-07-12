@@ -1,18 +1,20 @@
 <template>
   <header>
-<NavBar />
-  </header>
+NavBar />
+ </header>
   <main>
+
 <br><br>
 <RouterView />
 
 
-  </main>
+ </main>
 </template>
 
 <script setup>
+import ArkPullsCalculator from './views/ArkPullsCalculator.vue';
 import NavBar from './components/NavBar.vue';
-</script>
+/script>
 
 <style scoped>
 .box {
