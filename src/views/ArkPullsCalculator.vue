@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+ <div class="box">
     <h1 class="title is-4">Arknights Pulls Calculator</h1>
     <button class="button" @click="resetFields">Reset all fields</button>
     <section class="section">
@@ -133,3 +133,4 @@ function resetFields() {
 </script>
 
 <style scoped></style>
+
