@@ -1,9 +1,11 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-        <img src="\src\assets\home_icon.png" alt="A home icon to get back to the main page.">
-      </a>
+
+      <RouterLink class="navbar-item" to="/">
+        <img class="image" src="\src\assets\home_icon.png" alt="A home icon to get back to the main page.">
+        </RouterLink>
+
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -15,36 +17,25 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
+        <RouterLink class="navbar-item" to="/about">About</RouterLink>
+        <RouterLink class="navbar-item" to="/apc">Arknights Pulls Calculator</RouterLink>
 
-      <a class="navbar-item">
-         About
-      </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Side projects
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            Arknights Pulls Calculator
-          </a>
-
-          <!-- <a class="navbar-item">
-            Project 2 (to come)
-          </a> -->
-
+          <RouterLink class="navbar-item" to="/apc">Arknights Pulls Calculator</RouterLink>
         </div>
-
-              <!-- <a class="navbar-item">
-        Logbook
-      </a>
 
               <a class="navbar-item">
         Contact
-      </a> -->
+      </a> 
 
-      </div>
+      </div> -->
+
     </div>
 
     <!-- <div class="navbar-end">
@@ -64,4 +55,5 @@
 </template>
 
 <script setup>
+import router from '@/router';
 </script>
