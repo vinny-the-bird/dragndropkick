@@ -5,23 +5,41 @@
       <div class="grid">
         <div class="cell">
           <div class="box">
+            <img
+              src="\src\assets\Orundum.webp"
+              width="25%"
+              alt="A picture of red square orundum, a currency from the game."
+            />
             <label class="label" for="orundum">Orundum</label>
             <input
               v-model.number="orundum"
               type="number"
               min="0"
               placeholder="0"
+              min-width="100px"
             />
           </div>
         </div>
         <div class="cell">
           <div class="box">
+            <img
+              src="\src\assets\Originite_Prime.webp"
+              width="25%"
+              alt="A golden precious stone, the rarest of the in-game resources."
+            />
+
             <label class="label" for="op">Originite Prime</label>
             <input v-model.number="op" type="number" min="0" placeholder="0" />
           </div>
         </div>
         <div class="cell">
           <div class="box">
+            <img
+              src="\src\assets\Ten-roll_Headhunting_Permit.webp"
+              width="25%"
+              alt="A permit offering 10 headhunting pulls at once."
+            />
+
             <label class="label" for="permitTen"
               >Ten-roll Headhunting Permit</label
             >
@@ -35,6 +53,12 @@
         </div>
         <div class="cell">
           <div class="box">
+            <img
+              src="\src\assets\Headhunting_Permit.webp"
+              width="25%"
+              alt="A single permit for headhunting, allows you to get one random operator."
+            />
+
             <label class="label" for="permitSingle"
               >Single Headhunting Permit</label
             >
