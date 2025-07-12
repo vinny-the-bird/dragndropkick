@@ -2,9 +2,8 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-        <img src="\src\assets\dragndropkick_logo.png" alt="Drag'n'drop kick logo, Zangief dropkicking in the drop zone!" height="160">
-
-    </a>
+        <img src="\src\assets\home_icon.png" alt="A home icon to get back to the main page.">
+      </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -28,25 +27,22 @@
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            Project 1
+            Arknights Pulls Calculator
           </a>
 
-          <a class="navbar-item">
-            Project 2
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Stuff under divider
-          </a>
+          <!-- <a class="navbar-item">
+            Project 2 (to come)
+          </a> -->
+
         </div>
 
-              <a class="navbar-item">
+              <!-- <a class="navbar-item">
         Logbook
       </a>
 
               <a class="navbar-item">
         Contact
-      </a>
+      </a> -->
 
       </div>
     </div>
@@ -66,3 +62,6 @@
   </div>
 </nav>
 </template>
+
+<script setup>
+</script>
