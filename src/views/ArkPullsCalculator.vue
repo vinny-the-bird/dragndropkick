@@ -5,7 +5,7 @@
       <p>
         <strong>How to use:</strong> simply check your game and enter your
         different currencies below. It will calculate your number of pulls on
-        the fly. <br />A "reset all" button is also available, free of charge.
+        the fly. <br>Windows Key + Left Arrow to half your screen (you can do that on Mac too), if your game is on your PC screen and/or if you have a small laptop.<br />A "reset all" button is also available, free of charge.
         😁
       </p>
     </div>
