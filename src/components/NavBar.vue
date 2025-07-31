@@ -1,27 +1,42 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
       <RouterLink class="navbar-item" to="/">
-        <img class="image" src="\src\assets\home_icon.png" alt="A home icon to get back to the main page.">
-        </RouterLink>
+        <img
+          class="image"
+          src="\src\assets\home_icon.png"
+          alt="A home icon to get back to the main page."
+        />
+      </RouterLink>
 
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
         <RouterLink class="navbar-item" to="/about">About</RouterLink>
-        <RouterLink class="navbar-item" to="/apc">Arknights Pulls Calculator</RouterLink>
+        <RouterLink class="navbar-item" to="/apc"
+          >Arknights Pulls Calculator</RouterLink
+        >
+        <RouterLink class="navbar-item" to="/fast-dungeon-and-furious-dragon"
+          >Fast Dungeon & Furious Dragon</RouterLink
+        >
+        <RouterLink class="navbar-item" to="/the-longest-day"
+          >The Longest Day</RouterLink
+        >
 
-
-      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Side projects
         </a>
@@ -35,10 +50,9 @@
       </a> 
 
       </div> -->
+      </div>
 
-    </div>
-
-    <!-- <div class="navbar-end">
+      <!-- <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary">
@@ -50,10 +64,10 @@
         </div>
       </div>
     </div> -->
-  </div>
-</nav>
+    </div>
+  </nav>
 </template>
 
 <script setup>
-import router from '@/router';
+import router from "@/router";
 </script>
