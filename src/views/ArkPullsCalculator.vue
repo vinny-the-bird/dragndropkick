@@ -1,125 +1,127 @@
 <template>
-  <div class="box">
+  <div class="container">
     <h1 class="title is-4">Arknights Pulls Calculator</h1>
-    <div>
-      <p>
-        <strong>How to use:</strong> simply check your game and enter your
-        different currencies below. It will calculate your number of pulls on
-        the fly. <br />A "reset all" button is also available, free of charge.
-        😁
-      </p>
-    </div>
-    <br />
-    <div class="container">
-      <button class="button" @click="resetFields">Reset all fields</button>
-    </div>
-    <section class="section">
-      <div class="container is-flex is-justify-content-left">
-        <div class="fixed-grid">
-          <div class="grid">
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Orundum.webp"
-                  width="50%"
-                  alt="A picture of red square orundum, a currency from the game."
-                />
-                <label class="label" for="orundum">Orundum</label>
-                <input
-                  v-model.number="orundum"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
+    <div class="box">
+      <div>
+        <p>
+          <strong>How to use:</strong> simply check your game and enter your
+          different currencies below. It will calculate your number of pulls on
+          the fly. <br />A "reset all" button is also available, free of charge.
+          😁
+        </p>
+      </div>
+      <br />
+      <div class="container">
+        <button class="button" @click="resetFields">Reset all fields</button>
+      </div>
+      <section class="section">
+        <div class="container is-flex is-justify-content-left">
+          <div class="fixed-grid">
+            <div class="grid">
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Orundum.webp"
+                    width="50%"
+                    alt="A picture of red square orundum, a currency from the game."
+                  />
+                  <label class="label" for="orundum">Orundum</label>
+                  <input
+                    v-model.number="orundum"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Originite_Prime.webp"
-                  width="50%"
-                  alt="A golden precious stone, the rarest of the in-game resources."
-                />
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Originite_Prime.webp"
+                    width="50%"
+                    alt="A golden precious stone, the rarest of the in-game resources."
+                  />
 
-                <label class="label" for="op">Originite Prime</label>
-                <input
-                  v-model.number="op"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
+                  <label class="label" for="op">Originite Prime</label>
+                  <input
+                    v-model.number="op"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Ten-roll_Headhunting_Permit.webp"
-                  width="50%"
-                  alt="A permit offering 10 headhunting pulls at once."
-                />
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Ten-roll_Headhunting_Permit.webp"
+                    width="50%"
+                    alt="A permit offering 10 headhunting pulls at once."
+                  />
 
-                <label class="label" for="permitTen"
-                  >Ten-roll Headhunting Permit</label
-                >
-                <input
-                  v-model.number="permitTen"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
+                  <label class="label" for="permitTen"
+                    >Ten-roll Headhunting Permit</label
+                  >
+                  <input
+                    v-model.number="permitTen"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Headhunting_Permit.webp"
-                  width="50%"
-                  alt="A single permit for headhunting, allows you to get one random operator."
-                />
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Headhunting_Permit.webp"
+                    width="50%"
+                    alt="A single permit for headhunting, allows you to get one random operator."
+                  />
 
-                <label class="label" for="permitSingle"
-                  >Single Headhunting Permit</label
-                >
-                <input
-                  v-model.number="permitSingle"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
+                  <label class="label" for="permitSingle"
+                    >Single Headhunting Permit</label
+                  >
+                  <input
+                    v-model.number="permitSingle"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- <h3 class="subtitle">Results</h3> -->
+      </section>
+      <!-- <h3 class="subtitle">Results</h3> -->
 
-    <p>Total Pulls from Orundum + OP = {{ totalPullsFromOrundum }}</p>
-    <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p>
-    <p v-if="totalPulls >= 300">
-      TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
-      {{ totalPulls - 300 }} extra pulls!
-    </p>
-    <p v-else="totalPulls >= 300">
-      TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
-      reach 300)
-    </p>
+      <p>Total Pulls from Orundum + OP = {{ totalPullsFromOrundum }}</p>
+      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p>
+      <p v-if="totalPulls >= 300">
+        TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
+        {{ totalPulls - 300 }} extra pulls!
+      </p>
+      <p v-else="totalPulls >= 300">
+        TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
+        reach 300)
+      </p>
+    </div>
   </div>
 </template>
 

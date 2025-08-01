@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3 class="title">About this website</h3>
+    <h3 class="title is-4">About this website</h3>
     <div class="box">
       <div>
         <h4 class="subtitle">Hello and welcome!</h4>

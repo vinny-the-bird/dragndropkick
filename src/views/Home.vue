@@ -12,18 +12,17 @@
 
 
     <!-- <br><br><br> -->
-    <div class="container is-flex is-justify-content-center">
+    <!-- <div class="container is-flex is-justify-content-center">
           <div class="box">
           <div class="container">
             <h3 class="subtitle is-4">
               Current Mood
             </h3>
             <br>
-            <!-- <img src="\src\assets\tumblr_e50997d1ab05f24c6ebf2ac5c0a324ce_9fdd06aa_1280.png" alt=""> -->
             <img src="\src\assets\tumblr_cafc63c3feee892f74947449bdc5d18b_4e9fdc86_1280.png" alt="A chibi picture of Yu, a young dragon character from Arknight being very busy cooking" width="80%">
           </div>
     </div>   
-    </div>   
+    </div>    -->
       </div>
 </template>
 
