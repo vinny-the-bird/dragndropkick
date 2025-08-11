@@ -4,15 +4,14 @@
 
     <div class="box">
       <p>
-        Welcome adventurer! Choose wisely. Avoid the Dragon. Survive. Get rich
-        fast!
+        Welcome adventurer! Choose a door wisely. Go down the dungeon. Avoid the
+        Dragon. Survive. Get rich!
       </p>
       <br />
       <!-- <p>Welcome tae ye, wanderer! Pick wi' care. Steer clear o’ tha’ great scaly beast. Dinnae die, eh?! Go on, grab the gold!</p> -->
       <div class="box">
         <p class="is-bold">
-          SCORE -- [Rooms visited = {{ roomsVisited }}] -- [Gold coins =
-          {{ gold }}]
+          SCORE -- [Current Floor = {{ floor }}] -- [Gold coins = {{ gold }}]
         </p>
       </div>
       <br />
@@ -46,6 +45,15 @@
         <h4 class="subtitle is-3">{{ result }}</h4>
       </div>
     </div>
+    <div class="box">
+      <h5 class="subtitle is-5">Best scores</h5>
+      <p>{{ bestScores }}</p>
+      <ol v-for="score in bestScores">
+        Floor: {{
+          score.floor
+        }} - Gold: {{ score.gold }}
+      </ol>
+    </div>
   </div>
 </template>
 
@@ -56,8 +64,10 @@ const result = ref("");
 const correctDoor = ref();
 const gameOver = ref(false);
 const gameWait = ref(false);
-const roomsVisited = ref(0);
+const floor = ref(0);
 const gold = ref(1);
+const bestScores = ref([]);
+
 
 function openDoor(direction) {
   description.value = `You open the door on the ${direction}...`;
@@ -71,17 +81,26 @@ function openDoor(direction) {
     setTimeout(() => {
       result.value = "Yes! More coins for you! 🪙";
       //   result.value = "Aye! More coins for ye! 🪙";
-      roomsVisited.value = roomsVisited.value + 1;
+      floor.value = floor.value - 1;
       gold.value = gold.value * 2;
       setTimeout(() => {
         nextRound();
-      }, 2000);
+      }, 1500);
     }, 1500);
   } else {
     setTimeout(() => {
       result.value = "Aw, you're dead. 🔥☠️";
       //   result.value = "Och, yer deid. 🔥☠️";
       gameOver.value = true;
+      bestScores.value.push(
+        {
+          floor: floor.value,
+          gold: gold.value
+        }
+      );
+      bestScores.value.sort((firstItem, secondItem) => firstItem.floor - secondItem.floor);
+      console.log("🚀 ~ openDoor ~ bestScores.value:", bestScores.value);
+      localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
     }, 1500);
   }
 }
@@ -95,12 +114,18 @@ function nextRound() {
 
 function restart() {
   gameOver.value = false;
-  roomsVisited.value = 0;
+  floor.value = 0;
   gold.value = 1;
   nextRound();
 }
 
 onMounted(() => {
+  const ls = localStorage.getItem('bestScores')
+  if(ls !==null) {
+    bestScores.value = JSON.parse(localStorage.getItem('bestScores'))
+  } else {
+    bestScores.value = []
+  }
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
   console.log("Prophecy. Right answer = ", correctDoor.value);
@@ -112,7 +137,7 @@ function rollDie() {
   setTimeout(() => {
     description.value = "Choose a door.";
     gameWait.value = false;
-  }, 2000);
+  }, 1500);
 }
 </script>
 
