@@ -47,12 +47,22 @@
     </div>
     <div class="box">
       <h5 class="subtitle is-5">Best scores</h5>
-      <p>{{ bestScores }}</p>
-      <ol v-for="score in bestScores">
-        Floor: {{
-          score.floor
-        }} - Gold: {{ score.gold }}
-      </ol>
+      <!-- <p>{{ bestScores }}</p> -->
+      <table class="table has-text-centered is-bordered">
+        <thead>
+          <th>Rank</th>
+          <th>Floor</th>
+          <th>Gold</th>
+        </thead>
+        <tbody v-for="(score, index) in bestScores">
+          <td v-if="index+1 === 1">{{ index+1 }}st</td>
+          <td v-else-if="index+1 === 2">{{ index+1 }}nd</td>
+          <td v-else-if="index+1 === 3">{{ index+1 }}rd</td>
+          <td v-else>{{ index+1 }}</td>
+          <td>{{ score.floor }}</td>
+          <td>{{ score.gold }}</td>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -67,7 +77,6 @@ const gameWait = ref(false);
 const floor = ref(0);
 const gold = ref(1);
 const bestScores = ref([]);
-
 
 function openDoor(direction) {
   description.value = `You open the door on the ${direction}...`;
@@ -92,13 +101,13 @@ function openDoor(direction) {
       result.value = "Aw, you're dead. 🔥☠️";
       //   result.value = "Och, yer deid. 🔥☠️";
       gameOver.value = true;
-      bestScores.value.push(
-        {
-          floor: floor.value,
-          gold: gold.value
-        }
+      bestScores.value.push({
+        floor: floor.value,
+        gold: gold.value,
+      });
+      bestScores.value.sort(
+        (firstItem, secondItem) => firstItem.floor - secondItem.floor
       );
-      bestScores.value.sort((firstItem, secondItem) => firstItem.floor - secondItem.floor);
       console.log("🚀 ~ openDoor ~ bestScores.value:", bestScores.value);
       localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
     }, 1500);
@@ -120,11 +129,11 @@ function restart() {
 }
 
 onMounted(() => {
-  const ls = localStorage.getItem('bestScores')
-  if(ls !==null) {
-    bestScores.value = JSON.parse(localStorage.getItem('bestScores'))
+  const ls = localStorage.getItem("bestScores");
+  if (ls !== null) {
+    bestScores.value = JSON.parse(localStorage.getItem("bestScores"));
   } else {
-    bestScores.value = []
+    bestScores.value = [];
   }
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
