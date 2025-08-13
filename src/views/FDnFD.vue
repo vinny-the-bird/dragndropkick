@@ -1,18 +1,47 @@
 <template>
   <div class="container">
     <h1 class="title is-4">Fast Dungeon & Furious Dragon</h1>
+    <h2 class="subtitle is-5">
+      Welcome adventurer! Choose a door wisely. Go down the dungeon. Avoid the
+      Dragon. Survive. Get rich!
+    </h2>
 
     <div class="box">
-      <p>
-        Welcome adventurer! Choose a door wisely. Go down the dungeon. Avoid the
-        Dragon. Survive. Get rich!
-      </p>
-      <br />
       <!-- <p>Welcome tae ye, wanderer! Pick wi' care. Steer clear o’ tha’ great scaly beast. Dinnae die, eh?! Go on, grab the gold!</p> -->
-      <div class="box">
-        <p class="is-bold">
-          SCORE -- [Current Floor = {{ floor }}] -- [Gold coins = {{ gold }}]
-        </p>
+      <div class="container is-flex is-justify-content-space-around">
+        <div class="box">
+          <h5 class="subtitle is-6">YOUR SCORE</h5>
+          <table class="table has-text-centered is-bordered">
+            <thead>
+              <th>Current Floor</th>
+              <th>Gold coins</th>
+            </thead>
+            <tbody>
+              <td>{{ floor }}</td>
+              <td>{{ gold }}</td>
+            </tbody>
+          </table>
+        </div>
+        <!-- leaderboard here -->
+        <div class="box">
+          <h5 class="subtitle is-6">BEST SCORES</h5>
+          <!-- <p>{{ bestScores }}</p> -->
+          <table class="table has-text-centered is-narrow">
+            <thead>
+              <th>Rank</th>
+              <th>Floor</th>
+              <th>Gold</th>
+            </thead>
+            <tbody v-for="(score, index) in bestScores">
+              <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
+              <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
+              <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
+              <td v-else>{{ index + 1 }}</td>
+              <td>{{ score.floor }}</td>
+              <td>{{ score.gold }}</td>
+            </tbody>
+          </table>
+        </div>
       </div>
       <br />
       <p class="is-italic">{{ description }}</p>
@@ -44,25 +73,6 @@
         </div>
         <h4 class="subtitle is-3">{{ result }}</h4>
       </div>
-    </div>
-    <div class="box">
-      <h5 class="subtitle is-5">Best scores</h5>
-      <!-- <p>{{ bestScores }}</p> -->
-      <table class="table has-text-centered is-bordered">
-        <thead>
-          <th>Rank</th>
-          <th>Floor</th>
-          <th>Gold</th>
-        </thead>
-        <tbody v-for="(score, index) in bestScores">
-          <td v-if="index+1 === 1">{{ index+1 }}st</td>
-          <td v-else-if="index+1 === 2">{{ index+1 }}nd</td>
-          <td v-else-if="index+1 === 3">{{ index+1 }}rd</td>
-          <td v-else>{{ index+1 }}</td>
-          <td>{{ score.floor }}</td>
-          <td>{{ score.gold }}</td>
-        </tbody>
-      </table>
     </div>
   </div>
 </template>
@@ -108,6 +118,13 @@ function openDoor(direction) {
       bestScores.value.sort(
         (firstItem, secondItem) => firstItem.floor - secondItem.floor
       );
+      console.log("score length BEFORE= ",bestScores.value.length)
+      if(bestScores.value.length > 5) {
+        console.log("hey babyyyy")
+        bestScores.value = bestScores.value.slice(0, 5);
+      }
+      console.log("score length AFTER= ",bestScores.value.length)
+      // TODO: limit the score array to a max. 5, 6 or 10?...
       console.log("🚀 ~ openDoor ~ bestScores.value:", bestScores.value);
       localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
     }, 1500);
