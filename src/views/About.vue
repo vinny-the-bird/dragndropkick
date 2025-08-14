@@ -8,18 +8,18 @@
       <div>
         <p>
           First of all, thank you for visiting this page! If you landed on this
-          URL, it's probably not just 'by chance'. So yeah: big THANKS!
+          website, it's probably not 'just by chance'. So yeah: thanks a lot!
         </p>
         <br />
 
         <p>
           This website is my first one. It will serve as my personal sandbox and
           testing/training ground. Hopefully, I will also be able to share fun /
-          stupid? / maybe useful(?) little things here. If you enjoy stuff that
-          come out from that chaotic workshop of mine, even for 10 seconds, that
-          would be a win for me haha.
+          stupid? / maybe useful(?) things here. If you can enjoy the stuff
+          coming out from that chaotic workshop of mine, even for 10 seconds,
+          that would be a win for me haha.
         </p>
-        <p>See you around!</p>
+        <p>Take care and see you around!</p>
       </div>
       <div
         class="container is-flex is-flex-direction-column is-align-items-center"
@@ -31,8 +31,8 @@
           width="50%"
         />
         <p class="text is-italic">
-          My feeling when coding. Practice, practice!! <br />(Original art from
-          Street Fighter, Capcom)
+          My true feeling when coding.<br />(Original art from Street Fighter 6,
+          Capcom)
         </p>
       </div>
     </div>
