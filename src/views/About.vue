@@ -8,16 +8,16 @@
       <div>
         <p>
           First of all, thank you for visiting this page! If you landed on this
-          URL, it's probably not by any random way I guess, so yeah: big THANKS!
+          URL, it's probably not just 'by chance'. So yeah: big THANKS!
         </p>
         <br />
 
         <p>
           This website is my first one. It will serve as my personal sandbox and
           testing/training ground. Hopefully, I will also be able to share fun /
-          stupid? / maybe useful(?) little things here. If people can enjoy
-          stuff out from that chaotic workshop of mine, even for 10 seconds,
-          that would be a win for me haha.
+          stupid? / maybe useful(?) little things here. If you enjoy stuff that
+          come out from that chaotic workshop of mine, even for 10 seconds, that
+          would be a win for me haha.
         </p>
         <p>See you around!</p>
       </div>

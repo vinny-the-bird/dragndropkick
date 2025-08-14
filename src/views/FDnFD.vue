@@ -10,17 +10,21 @@
       <!-- <p>Welcome tae ye, wanderer! Pick wi' care. Steer clear o’ tha’ great scaly beast. Dinnae die, eh?! Go on, grab the gold!</p> -->
       <div class="container is-flex is-justify-content-space-around">
         <div class="box">
-          <h5 class="subtitle is-6">YOUR SCORE</h5>
+          <h5 class="subtitle is-6">YOUR ADVENTURE</h5>
           <table class="table has-text-centered is-bordered">
             <thead>
-              <th>Current Floor</th>
-              <th>Gold coins</th>
+              <th>Current Floor 🪜</th>
+              <th>Gold coins 🪙</th>
             </thead>
             <tbody>
               <td>{{ floor }}</td>
               <td>{{ gold }}</td>
             </tbody>
           </table>
+          <h5 class="subtitle is-6">What's going on?</h5>
+          <p class="is-italic">{{ description }}</p>
+        <!-- <h4 class="subtitle is-3">{{ result }}</h4> -->
+
         </div>
         <!-- leaderboard here -->
         <div class="box">
@@ -44,11 +48,17 @@
         </div>
       </div>
       <br />
-      <p class="is-italic">{{ description }}</p>
       <br />
 
       <div class="container">
         <div class="buttons are-large">
+          <button
+            class="button is-warning is-light"
+            @click="leaveDungeon()"
+            :disabled="gameWait == true"
+          >
+            Leave
+          </button>
           <button
             class="button is-dark"
             @click="openDoor('left')"
@@ -98,8 +108,8 @@ function openDoor(direction) {
     (direction == "right" && correctDoor.value == 1)
   ) {
     setTimeout(() => {
-      result.value = "Yes! More coins for you! 🪙";
-      //   result.value = "Aye! More coins for ye! 🪙";
+      result.value = "Treasure!🪙x2";
+      //   result.value = "Aye! More coins for ye! 🪙"; //TODO: add Scottish and/or irish versions
       floor.value = floor.value - 1;
       gold.value = gold.value * 2;
       setTimeout(() => {
@@ -108,25 +118,9 @@ function openDoor(direction) {
     }, 1500);
   } else {
     setTimeout(() => {
-      result.value = "Aw, you're dead. 🔥☠️";
-      //   result.value = "Och, yer deid. 🔥☠️";
+      result.value = "Dragon!! You're dead. 🔥☠️";
+      //  result.value = "Och, yer deid. 🔥☠️";
       gameOver.value = true;
-      bestScores.value.push({
-        floor: floor.value,
-        gold: gold.value,
-      });
-      bestScores.value.sort(
-        (firstItem, secondItem) => firstItem.floor - secondItem.floor
-      );
-      console.log("score length BEFORE= ",bestScores.value.length)
-      if(bestScores.value.length > 5) {
-        console.log("hey babyyyy")
-        bestScores.value = bestScores.value.slice(0, 5);
-      }
-      console.log("score length AFTER= ",bestScores.value.length)
-      // TODO: limit the score array to a max. 5, 6 or 10?...
-      console.log("🚀 ~ openDoor ~ bestScores.value:", bestScores.value);
-      localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
     }, 1500);
   }
 }
@@ -136,6 +130,27 @@ function nextRound() {
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
   console.log("Prophecy. Right answer = ", correctDoor.value);
+}
+
+function leaveDungeon() {
+  gameOver.value = true;
+  description.value = "You make your way out of the dungeon...";
+  result.value = "Congratulations! You survived and earned some coins!";
+  saveScore();
+}
+
+function saveScore() {
+      bestScores.value.push({
+        floor: floor.value,
+        gold: gold.value,
+      });
+      bestScores.value.sort(
+        (firstItem, secondItem) => firstItem.floor - secondItem.floor
+      );
+      if(bestScores.value.length > 5) {
+        bestScores.value = bestScores.value.slice(0, 5);
+      }
+      localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
 }
 
 function restart() {
@@ -159,7 +174,7 @@ onMounted(() => {
 
 function rollDie() {
   gameWait.value = true;
-  description.value = "The Dragon is rolling the die...";
+  description.value = "The Dragon is rolling the dice...";
   setTimeout(() => {
     description.value = "Choose a door.";
     gameWait.value = false;
@@ -167,4 +182,9 @@ function rollDie() {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.container {
+  padding: 2rem;
+}
+</style>
