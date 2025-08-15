@@ -36,6 +36,10 @@
           >The Longest Day</RouterLink
         >
 
+        <RouterLink class="navbar-item" to="/testlab"
+          >Testlab</RouterLink
+        >
+
         <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Side projects
