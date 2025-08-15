@@ -1,56 +1,69 @@
 <template>
-  <div class="container">
+  <div class="container global-frame c1">
+    <!-- <h1 class="title is-4">Test Lab 'FD&FD'</h1> -->
     <h1 class="title is-4">Fast Dungeon & Furious Dragon</h1>
     <h2 class="subtitle is-5">
       Welcome adventurer! Choose a door wisely. Go down the dungeon. Avoid the
       Dragon. Survive. Get rich!
     </h2>
-
-    <div class="box">
-      <!-- <p>Welcome tae ye, wanderer! Pick wi' care. Steer clear o’ tha’ great scaly beast. Dinnae die, eh?! Go on, grab the gold!</p> -->
-      <div class="container is-flex is-justify-content-space-around">
-        <div class="box">
-          <h5 class="subtitle is-6">YOUR ADVENTURE</h5>
-          <table class="table has-text-centered is-bordered">
-            <thead>
-              <th>Current Floor 🪜</th>
-              <th>Gold coins 🪙</th>
-            </thead>
-            <tbody>
-              <td>{{ floor }}</td>
-              <td>{{ gold }}</td>
-            </tbody>
-          </table>
-          <h5 class="subtitle is-6">What's going on?</h5>
-          <p class="is-italic">{{ description }}</p>
-        <!-- <h4 class="subtitle is-3">{{ result }}</h4> -->
-
-        </div>
-        <!-- leaderboard here -->
-        <div class="box">
-          <h5 class="subtitle is-6">BEST SCORES</h5>
-          <!-- <p>{{ bestScores }}</p> -->
-          <table class="table has-text-centered is-narrow">
-            <thead>
-              <th>Rank</th>
-              <th>Floor</th>
-              <th>Gold</th>
-            </thead>
-            <tbody v-for="(score, index) in bestScores">
-              <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
-              <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
-              <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
-              <td v-else>{{ index + 1 }}</td>
-              <td>{{ score.floor }}</td>
-              <td>{{ score.gold }}</td>
-            </tbody>
-          </table>
+    <div class="container c3 is-flex is-justify-content-space-around">
+      <div class="container c4">
+        <div class="columns">
+          <!-- column 1 -->
+          <div class="column is-one-fifth">
+            <div class="box menu">
+              <h5 class="subtitle is-6">BEST SCORES</h5>
+              <!-- <p>{{ bestScores }}</p> -->
+              <table class="table has-text-centered is-narrow">
+                <thead>
+                  <th>Rank</th>
+                  <th>Floor</th>
+                  <th>Gold</th>
+                </thead>
+                <tbody v-for="(score, index) in bestScores">
+                  <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
+                  <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
+                  <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
+                  <td v-else>{{ index + 1 }}</td>
+                  <td>{{ score.floor }}</td>
+                  <td>{{ score.gold }}</td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="column is-two-fifth">
+            <div class="box menu">
+              <h5 class="subtitle is-6">YOUR ADVENTURE</h5>
+              <table class="table has-text-centered is-bordered">
+                <thead>
+                  <th>Current Floor 🪜</th>
+                  <th>Gold coins 🪙</th>
+                </thead>
+                <tbody>
+                  <td>{{ floor }}</td>
+                  <td>{{ gold }}</td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- column 2 -->
+          <div class="column is-three-fifth">
+            <div class="box menu">
+              <h5 class="subtitle is-6">What's going on?</h5>
+              <p class="is-italic">{{ description }}</p>
+              <div>
+                <h4 class="subtitle is-3" style="margin-top: 3rem">
+                  {{ result }}
+                </h4>
+              </div>
+            </div>
+          </div>
+          <!-- column 3 -->
         </div>
       </div>
-      <br />
-      <br />
-
-      <div class="container">
+    </div>
+    <div class="box">
+      <div class="container is-flex is-justify-content-center">
         <div class="buttons are-large">
           <button
             class="button is-warning is-light"
@@ -81,10 +94,12 @@
             Play again?
           </button>
         </div>
-        <h4 class="subtitle is-3">{{ result }}</h4>
       </div>
+      <!-- <h4 class="subtitle is-3">{{ result }}</h4> -->
     </div>
   </div>
+
+  
 </template>
 
 <script setup>
@@ -140,17 +155,17 @@ function leaveDungeon() {
 }
 
 function saveScore() {
-      bestScores.value.push({
-        floor: floor.value,
-        gold: gold.value,
-      });
-      bestScores.value.sort(
-        (firstItem, secondItem) => firstItem.floor - secondItem.floor
-      );
-      if(bestScores.value.length > 5) {
-        bestScores.value = bestScores.value.slice(0, 5);
-      }
-      localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
+  bestScores.value.push({
+    floor: floor.value,
+    gold: gold.value,
+  });
+  bestScores.value.sort(
+    (firstItem, secondItem) => firstItem.floor - secondItem.floor
+  );
+  if (bestScores.value.length > 5) {
+    bestScores.value = bestScores.value.slice(0, 5);
+  }
+  localStorage.setItem("bestScores", JSON.stringify(bestScores.value));
 }
 
 function restart() {
@@ -183,8 +198,29 @@ function rollDie() {
 </script>
 
 <style scoped>
-
+/* TODO: add a 'main' to the first class container of each page. Make it global */
 .container {
+  padding: 0.5rem;
+}
+
+.global-frame {
   padding: 2rem;
+}
+/* .c1 {
+  background-color: blueviolet;
+}
+.c2 {
+  background-color: rgb(83, 166, 238);
+}
+.c3 {
+  background-color: rgb(68, 247, 110);
+}
+.c4 {
+  background-color: rgb(227, 159, 43);
+} */
+
+.menu {
+  /* min-height: 100px; */
+  height: 18rem;
 }
 </style>
