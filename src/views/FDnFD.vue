@@ -12,7 +12,23 @@
           <!-- column 1 -->
           <div class="column is-one-fifth">
             <div class="box menu">
-              <h5 class="subtitle is-6">BEST SCORES</h5>
+              <div class="is-flex is-justify-content-space-between">
+                <div>
+                  <h5 class="subtitle is-6">BEST SCORES</h5>
+                </div>
+                <div>
+                  <!-- <button v-if="bestScores.length == 0" class="button is-small"> -->
+                  <!-- <MyModal /> -->
+                  <!-- </button> -->
+                  <!-- <BaseModal
+                  /> -->
+
+                   <BaseModal
+                  @click="deleteReceiver"
+                />
+
+                </div>
+              </div>
               <table class="table has-text-centered is-narrow">
                 <thead>
                   <tr>
@@ -26,7 +42,7 @@
                     <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
                     <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
                     <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
-                    <td v-else>{{ index + 1 }}</td>
+                    <td v-else>{{ index + 1 }}th</td>
                     <td>{{ score.floor }}</td>
                     <td>{{ score.gold }}</td>
                   </tr>
@@ -107,6 +123,7 @@
 </template>
 
 <script setup>
+import BaseModal from "@/components/BaseModal.vue";
 import { onMounted, ref } from "vue";
 const description = ref("");
 const result = ref("");
@@ -148,7 +165,7 @@ function nextRound() {
   description.value = result.value = "";
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  // console.log("Prophecy. Right answer = ", correctDoor.value);
+  console.log("Prophecy. Right answer = ", correctDoor.value);
 }
 
 function leaveDungeon() {
@@ -188,7 +205,7 @@ onMounted(() => {
   }
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  // console.log("Prophecy. Right answer = ", correctDoor.value);
+  console.log("Prophecy. Right answer = ", correctDoor.value);
 });
 
 function rollDie() {
@@ -206,9 +223,9 @@ function rollDie() {
   padding: 0rem 2rem;
 }
 
-.container {
+/* .container {
   padding: 0.5rem;
-}
+} */
 
 /* .c1 {
   background-color: blueviolet;

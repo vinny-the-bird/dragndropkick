@@ -1,13 +1,13 @@
 <template>
   <div class="container global-frame">
-    <h1 class="title is-4">Arknights Pulls Calculator</h1>
-    <div>
-      <p>
+    <h1 class="title is-4">Arknights Pulls Calculator</h1><br>
+    <!-- <div> -->
+      <h2 class="subtitle is-5">
         <strong>How to use:</strong> Simply check your in-game currencies and
         enter your numbers below. It will calculate your number of pulls on the
         fly.
-      </p>
-    </div>
+      </h2>
+    <!-- </div> -->
     <div class="box">
       <br />
       <div class="container">
