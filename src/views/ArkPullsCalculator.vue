@@ -1,15 +1,14 @@
 <template>
-  <div class="container">
+  <div class="container global-frame">
     <h1 class="title is-4">Arknights Pulls Calculator</h1>
+    <div>
+      <p>
+        <strong>How to use:</strong> Simply check your in-game currencies and
+        enter your numbers below. It will calculate your number of pulls on the
+        fly.
+      </p>
+    </div>
     <div class="box">
-      <div>
-        <p>
-          <strong>How to use:</strong> simply check your game and enter your
-          different currencies below. It will calculate your number of pulls on
-          the fly. <br />A "reset all" button is also available, free of charge.
-          😁
-        </p>
-      </div>
       <br />
       <div class="container">
         <button class="button" @click="resetFields">Reset all fields</button>
@@ -109,15 +108,14 @@
           </div>
         </div>
       </section>
-      <!-- <h3 class="subtitle">Results</h3> -->
-
-      <p>Total Pulls from Orundum + OP = {{ totalPullsFromOrundum }}</p>
-      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p>
-      <p v-if="totalPulls >= 300">
+      <!-- <h3 class="subtitle is-4">Results</h3> -->
+      <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
+      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
+      <p class="is-size-5" v-if="totalPulls >= 300">
         TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
         {{ totalPulls - 300 }} extra pulls!
       </p>
-      <p v-else="totalPulls >= 300">
+      <p class="is-size-5" v-else="totalPulls >= 300">
         TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
         reach 300)
       </p>
@@ -184,4 +182,8 @@ function handlePaste(e) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.global-frame {
+  padding: 0rem 2rem;
+}
+</style>

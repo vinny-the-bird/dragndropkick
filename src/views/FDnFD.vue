@@ -1,7 +1,7 @@
 <template>
   <div class="container global-frame c1">
-    <!-- <h1 class="title is-4">Test Lab 'FD&FD'</h1> -->
     <h1 class="title is-4">Fast Dungeon & Furious Dragon</h1>
+    <br />
     <h2 class="subtitle is-5">
       Welcome adventurer! Choose a door wisely. Go down the dungeon. Avoid the
       Dragon. Survive. Get rich!
@@ -13,7 +13,6 @@
           <div class="column is-one-fifth">
             <div class="box menu">
               <h5 class="subtitle is-6">BEST SCORES</h5>
-              <!-- <p>{{ bestScores }}</p> -->
               <table class="table has-text-centered is-narrow">
                 <thead>
                   <tr>
@@ -149,7 +148,7 @@ function nextRound() {
   description.value = result.value = "";
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  console.log("Prophecy. Right answer = ", correctDoor.value);
+  // console.log("Prophecy. Right answer = ", correctDoor.value);
 }
 
 function leaveDungeon() {
@@ -189,7 +188,7 @@ onMounted(() => {
   }
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  console.log("Prophecy. Right answer = ", correctDoor.value);
+  // console.log("Prophecy. Right answer = ", correctDoor.value);
 });
 
 function rollDie() {
@@ -203,14 +202,14 @@ function rollDie() {
 </script>
 
 <style scoped>
-/* TODO: add a 'main' to the first class container of each page. Make it global */
+.global-frame {
+  padding: 0rem 2rem;
+}
+
 .container {
   padding: 0.5rem;
 }
 
-.global-frame {
-  padding: 2rem;
-}
 /* .c1 {
   background-color: blueviolet;
 }

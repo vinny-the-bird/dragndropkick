@@ -26,19 +26,20 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <RouterLink class="navbar-item" to="/about">About</RouterLink>
-        <RouterLink class="navbar-item" to="/apc"
+        <RouterLink class="navbar-item" to="/arknights-pulls-calculator"
           >Arknights Pulls Calculator</RouterLink
         >
         <RouterLink class="navbar-item" to="/fast-dungeon-and-furious-dragon"
           >Fast Dungeon & Furious Dragon</RouterLink
         >
-        <RouterLink class="navbar-item" to="/the-longest-day"
-          >The Longest Day</RouterLink
-        >
 
-        <RouterLink class="navbar-item" to="/testlab"
-          >Testlab</RouterLink
-        >
+        <RouterLink class="navbar-item" to="/the-longest-day"
+          ><img
+            id="the-longest-day"
+            src="/src\assets\tumblr_d82e2998e8b539eba7a13c5e9b7854c5_592ffcbd_1280.png"
+            alt=""
+          />
+        </RouterLink>
 
         <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -52,7 +53,7 @@
               <a class="navbar-item">
         Contact
       </a> 
-
+      img
       </div> -->
       </div>
 
@@ -73,5 +74,11 @@
 </template>
 
 <script setup>
-import router from "@/router";
+// import router from "@/router";
 </script>
+
+<style>
+#the-longest-day {
+  float: right;
+}
+</style>

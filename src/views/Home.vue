@@ -1,15 +1,17 @@
 <template>
-    <div class="container">
-        <div class="container is-flex-direction-row">
-          <div class="container">
-              <h1 class="title is-1">Welcome to Drag'n'Dropkick</h1>
-              <h3 class="subtitle is-3">'Throwing Stuff Since 1999'</h3>
-              <img src="\src\assets\dragndropkick_logo.png" alt="Drag'n'dropkick's logo, the famous wrestler Zangief from Street Fighter videogame is dropkicking in the classic drag and drop zone!" width="40%">
-          </div>
-        <div class="container">
+  <div class="container global-frame">
+    <div class="container is-flex-direction-row">
+      <div class="container">
+        <h1 class="title is-1">Welcome to Drag'n'Dropkick</h1>
+        <h3 class="subtitle is-3">'Throwing Stuff Since 1999'</h3>
+        <img
+          src="\src\assets\dragndropkick_logo.png"
+          alt="Drag'n'dropkick's logo, the famous wrestler Zangief from Street Fighter videogame is dropkicking in the classic drag and drop zone!"
+          width="40%"
+        />
       </div>
-        </div>
-
+      <div class="container"></div>
+    </div>
 
     <!-- <br><br><br> -->
     <!-- <div class="container is-flex is-justify-content-center">
@@ -23,8 +25,13 @@
           </div>
     </div>   
     </div>    -->
-      </div>
+  </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
+
+<style scoped>
+.global-frame {
+  padding: 0rem 2rem;
+}
+</style>
