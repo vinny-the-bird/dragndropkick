@@ -16,17 +16,21 @@
               <!-- <p>{{ bestScores }}</p> -->
               <table class="table has-text-centered is-narrow">
                 <thead>
-                  <th>Rank</th>
-                  <th>Floor</th>
-                  <th>Gold</th>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Floor</th>
+                    <th>Gold</th>
+                  </tr>
                 </thead>
                 <tbody v-for="(score, index) in bestScores">
-                  <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
-                  <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
-                  <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
-                  <td v-else>{{ index + 1 }}</td>
-                  <td>{{ score.floor }}</td>
-                  <td>{{ score.gold }}</td>
+                  <tr>
+                    <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
+                    <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
+                    <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
+                    <td v-else>{{ index + 1 }}</td>
+                    <td>{{ score.floor }}</td>
+                    <td>{{ score.gold }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -36,12 +40,16 @@
               <h5 class="subtitle is-6">YOUR ADVENTURE</h5>
               <table class="table has-text-centered is-bordered">
                 <thead>
-                  <th>Current Floor 🪜</th>
-                  <th>Gold coins 🪙</th>
+                  <tr>
+                    <th>Current Floor 🪜</th>
+                    <th>Gold coins 🪙</th>
+                  </tr>
                 </thead>
                 <tbody>
-                  <td>{{ floor }}</td>
-                  <td>{{ gold }}</td>
+                  <tr>
+                    <td>{{ floor }}</td>
+                    <td>{{ gold }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -98,8 +106,6 @@
       <!-- <h4 class="subtitle is-3">{{ result }}</h4> -->
     </div>
   </div>
-
-  
 </template>
 
 <script setup>
