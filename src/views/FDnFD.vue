@@ -58,7 +58,7 @@
           <div class="column is-three-fifth">
             <div class="box menu">
               <h5 class="subtitle is-6">What's going on?</h5>
-              <p class="is-italic">{{ description }}</p>
+              <p class="is-italic is-size-5">{{ description }}</p>
               <div>
                 <h4 class="subtitle is-3" style="margin-top: 3rem">
                   {{ result }}
@@ -74,9 +74,9 @@
       <div class="container is-flex is-justify-content-center">
         <div class="buttons are-large">
           <button
-            class="button is-warning is-light"
+            class="button is-warning"
             @click="leaveDungeon()"
-            :disabled="gameWait == true"
+            :disabled="gameWait == true || floor == 0"
           >
             Leave
           </button>
@@ -95,15 +95,14 @@
             Right Door
           </button>
           <button
-            class="button is-warning"
+            class="button is-success"
             v-if="gameOver == true"
             @click="restart"
           >
-            Play again?
+            Retry?
           </button>
         </div>
       </div>
-      <!-- <h4 class="subtitle is-3">{{ result }}</h4> -->
     </div>
   </div>
 </template>
@@ -142,7 +141,7 @@ function openDoor(direction) {
       result.value = "Dragon!! You're dead. 🔥☠️";
       //  result.value = "Och, yer deid. 🔥☠️";
       gameOver.value = true;
-    }, 1500);
+    }, 2000);
   }
 }
 
