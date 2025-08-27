@@ -17,7 +17,8 @@
                   <h5 class="subtitle is-6">BEST SCORES</h5>
                 </div>
                 <div>
-                  <InfoModal />
+                  <!-- TODO: make it appears after a define numbers of game played? -->
+                  <InfoModalFDnFD />
                 </div>
               </div>
               <div class="is-flex is-justify-content-center">
@@ -122,7 +123,7 @@
 </template>
 
 <script setup>
-import InfoModal from "@/components/InfoModal.vue";
+import InfoModalFDnFD from "@/components/InfoModalFDnFD.vue";
 import { onMounted, ref } from "vue";
 const description = ref("");
 const result = ref("");

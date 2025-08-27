@@ -4,7 +4,8 @@
     <div class="box">
       <div>
         <h4 class="subtitle">Hello and welcome!</h4>
-      </div><br>
+      </div>
+      <br />
       <div>
         <p>
           First of all, thank you for visiting this page! If you landed here,
@@ -14,10 +15,10 @@
 
         <p>
           This website is my first one. It will serve as my personal sandbox and
-          testing/training ground. Hopefully, I will also be able to share fun /
-          stupid? / maybe useful(?) things here. If you can enjoy the stuff
-          coming out from that chaotic workshop of mine, even for a minute, that
-          would be a win for me haha.
+          testing/training ground. I wouldn't dare to call it a portfolio, at
+          least for now . Hopefully, I will be able to share fun / stupid? /
+          maybe useful(?) things here. If you can enjoy the stuff coming out
+          from that chaotic workshop of mine, that would be a win for me!
         </p>
         <br />
         <p>Take care and see you around!</p>
