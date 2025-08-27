@@ -17,64 +17,63 @@
                   <h5 class="subtitle is-6">BEST SCORES</h5>
                 </div>
                 <div>
-                  <!-- <button v-if="bestScores.length == 0" class="button is-small"> -->
-                  <!-- <MyModal /> -->
-                  <!-- </button> -->
-                  <!-- <BaseModal
-                  /> -->
-
-                   <BaseModal
-                  @click="deleteReceiver"
-                />
-
+                  <InfoModal />
                 </div>
               </div>
-              <table class="table has-text-centered is-narrow">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Floor</th>
-                    <th>Gold</th>
-                  </tr>
-                </thead>
-                <tbody v-for="(score, index) in bestScores">
-                  <tr>
-                    <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
-                    <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
-                    <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
-                    <td v-else>{{ index + 1 }}th</td>
-                    <td>{{ score.floor }}</td>
-                    <td>{{ score.gold }}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="is-flex is-justify-content-center">
+                <table class="table has-text-centered is-narrow">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Floor</th>
+                      <th>Gold</th>
+                    </tr>
+                  </thead>
+                  <tbody v-for="(score, index) in bestScores">
+                    <tr>
+                      <td v-if="index + 1 === 1">{{ index + 1 }}st</td>
+                      <td v-else-if="index + 1 === 2">{{ index + 1 }}nd</td>
+                      <td v-else-if="index + 1 === 3">{{ index + 1 }}rd</td>
+                      <td v-else>{{ index + 1 }}th</td>
+                      <td>{{ score.floor }}</td>
+                      <td>{{ score.gold }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div class="column is-two-fifth">
             <div class="box menu">
               <h5 class="subtitle is-6">YOUR ADVENTURE</h5>
-              <table class="table has-text-centered is-bordered">
-                <thead>
-                  <tr>
-                    <th>Current Floor 🪜</th>
-                    <th>Gold coins 🪙</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ floor }}</td>
-                    <td>{{ gold }}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="is-flex is-justify-content-center">
+                <table class="table has-text-centered is-bordered">
+                  <thead>
+                    <tr>
+                      <th>Current Floor 🪜</th>
+                      <th>Gold coins 🪙</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ floor }}</td>
+                      <td>{{ gold }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <!-- column 2 -->
           <div class="column is-three-fifth">
             <div class="box menu">
               <h5 class="subtitle is-6">What's going on?</h5>
-              <p class="is-italic is-size-5">{{ description }}</p>
-              <div>
+              <div class="is-flex is-justify-content-center">
+                <div>
+                  <p class="is-italic is-size-5">{{ description }}</p>
+                </div>
+              </div>
+              <div class="is-flex is-justify-content-center">
                 <h4 class="subtitle is-3" style="margin-top: 3rem">
                   {{ result }}
                 </h4>
@@ -123,7 +122,7 @@
 </template>
 
 <script setup>
-import BaseModal from "@/components/BaseModal.vue";
+import InfoModal from "@/components/InfoModal.vue";
 import { onMounted, ref } from "vue";
 const description = ref("");
 const result = ref("");

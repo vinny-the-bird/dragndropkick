@@ -1,9 +1,7 @@
 <template>
   <div class="level-left">
     <div class="control level-item">
-      <button class="button" @click.prevent="toggleModal">
-        a name
-      </button>
+      <button class="button is-small" @click.prevent="toggleModal">Info</button>
     </div>
   </div>
 
@@ -13,16 +11,14 @@
       <div class="modal-content">
         <div class="box has-text-centered">
           <p class="mb-4">a title</p>
-          <!-- <div class="buttons is-centered">
-            <button class="button is-danger" @click="handleModalButton">
-              {{ primaryButtonName }}
-            </button>
-          </div> -->
+
           <p>some text</p>
-          <button class="button modal-close is-large" @click="toggleModal">X</button>
+          <button
+            class="button modal-close is-large"
+            @click="toggleModal"
+          ></button>
         </div>
       </div>
-      <!-- <button class="modal-close is-large" aria-label="close"></button> -->
     </div>
   </transition>
 </template>
@@ -30,24 +26,13 @@
 <script setup>
 import { ref } from "vue";
 
-// const props = defineProps({
-//   title: String,
-//   modalButtonName: String,
-//   primaryButtonName: String,
-//   secondaryButtonName: String,
-// });
-
-const emit = defineEmits(["click"]);
+// const emit = defineEmits(["click"]);
 
 const isModalOpen = ref(false);
 
 function toggleModal() {
   isModalOpen.value = !isModalOpen.value;
 }
-
-// function handleModalButton() {
-//   emit("click");
-// }
 </script>
 
 <style scoped>
