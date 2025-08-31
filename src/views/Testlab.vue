@@ -1,17 +1,13 @@
 <template>
-
-<div class="container">
+  <div class="container global-frame">
     <h1 class="title is-4">Test Lab</h1>
-
-</div>
+  </div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style scoped>
-.container {
-  padding: 2rem;
+.global-frame {
+  padding: 0rem 2rem;
 }
 </style>

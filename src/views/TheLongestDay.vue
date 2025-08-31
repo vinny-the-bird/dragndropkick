@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container global-frame">
     <h1 class="title is-4">The Longest Day</h1>
 
     <div class="container">
@@ -8,11 +8,11 @@
         <h1 class="title is-5">{{ today }}</h1>
       </div>
       <div class="box">
-        <h1 class="subtitle is-4">Certification Deadline in</h1>
+        <h1 class="subtitle is-4">Deadline in</h1>
         <h1 class="title is-5">{{ remainingTimeCda }}</h1>
       </div>
       <div class="box">
-        <h1 class="subtitle is-4">Final Exam in</h1>
+        <h1 class="subtitle is-4">Final in</h1>
         <h1 class="title is-5">{{ remainingtTimeExam }}</h1>
       </div>
     </div>
@@ -54,7 +54,9 @@ function formatRemainingTime(ms) {
 </script>
 
 <style scoped>
-.container {
-  padding: 2rem;
+
+.global-frame {
+  padding: 0rem 2rem;
 }
+
 </style>
