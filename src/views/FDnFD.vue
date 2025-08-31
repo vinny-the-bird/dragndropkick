@@ -18,7 +18,10 @@
                 </div>
                 <div>
                   <!-- TODO: make it appears after a define numbers of game played? -->
-                  <InfoModalFDnFD />
+                  <InfoModalFDnFD
+                    :modalButtonName="modalButtonName"
+                    :isDisabled="infoModalIsDisabled"
+                  />
                 </div>
               </div>
               <div class="is-flex is-justify-content-center">
@@ -133,6 +136,8 @@ const gameWait = ref(false);
 const floor = ref(0);
 const gold = ref(1);
 const bestScores = ref([]);
+let modalButtonName = ref("");
+const infoModalIsDisabled = ref(true);
 
 function openDoor(direction) {
   description.value = `You open the door on the ${direction}...`;
@@ -194,6 +199,12 @@ function restart() {
   floor.value = 0;
   gold.value = 1;
   nextRound();
+  if (bestScores.value.length == 5) {
+    modalButtonName = "Info";
+    infoModalIsDisabled.value = false;
+  } else {
+    modalButtonName = `${bestScores.value.length}/5`;
+  }
 }
 
 onMounted(() => {
@@ -203,6 +214,15 @@ onMounted(() => {
   } else {
     bestScores.value = [];
   }
+
+  if (bestScores.value.length == 5) {
+    modalButtonName = "Info";
+    infoModalIsDisabled.value = false;
+  } else {
+    modalButtonName = `${bestScores.value.length}/5`;
+  }
+
+  console.log("🚀 ~ modalButtonName.value:", modalButtonName.value);
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
   console.log("Prophecy. Right answer = ", correctDoor.value);

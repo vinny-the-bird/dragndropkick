@@ -1,7 +1,9 @@
 <template>
   <div class="level-left">
     <div class="control level-item">
-      <button class="button is-small" @click.prevent="toggleModal">Info</button>
+      <button :disabled="isDisabled == true" class="button is-small is-info is-light" @click.prevent="toggleModal">
+        {{ modalButtonName }}
+      </button>
     </div>
   </div>
 
@@ -132,7 +134,10 @@
 <script setup>
 import { ref } from "vue";
 
-// const emit = defineEmits(["click"]);
+const props = defineProps({
+  modalButtonName: String,
+  isDisabled: Boolean
+});
 
 const isModalOpen = ref(false);
 
