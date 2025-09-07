@@ -1,7 +1,11 @@
 <template>
   <div class="level-left">
     <div class="control level-item">
-      <button :disabled="isDisabled == true" class="button is-small is-info is-light" @click.prevent="toggleModal">
+      <button
+        :disabled="isDisabled == true"
+        class="button is-small is-info is-light"
+        @click.prevent="toggleModal"
+      >
         {{ modalButtonName }}
       </button>
     </div>
@@ -11,7 +15,6 @@
     <div class="modal is-active" v-if="isModalOpen">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <!-- <div class="box has-text-centered"> -->
         <div class="box">
           <div class="text-block">
             <h4 class="mb-4 title is-5">So WHAT is that game?</h4>
@@ -39,7 +42,7 @@
                 "You bet on one of two values. Pick the right choice and you
                 double your money. Pick the wrong one, and you just lose
                 everything. But if you stop before betting again, you can save
-                the money you earned.""</span
+                the money you earned."</span
               >
               Did you guess it?
             </p>
@@ -65,6 +68,12 @@
             </p>
           </div>
 
+          <img
+            src="..\assets\fdnfd\roulette_mat.jpg"
+            alt="The roulette mat, showing all bets possibility: from one single number to multiple options like betting on a whole column of number or only on red."
+            title="Roulette mat. Fancy."
+          />
+
           <div class="text-block">
             <h4 class="mb-4 title is-5">
               Ho, but I did a good score! So I can get to the casino and start
@@ -73,8 +82,8 @@
             <p>
               Hell no way. <br />
               First, I'm not encouraging gambling, so seek some help if you need
-              it. Second, my little game is strictly 50/50% chance (because I'm
-              cool). The casino roulette is
+              it. <br />Second, my little game is strictly 50/50% chance
+              (because I'm cool). <br />The casino roulette is
               <span class="has-text-weight-bold">NOT</span>. <br />In Europe, it
               has a green '0', and US roulette has an extra green '00'. Those
               zeros are no color, neither even nor odd, and out of the 1-36
@@ -86,10 +95,16 @@
             </p>
           </div>
 
+          <img
+            src="..\assets\fdnfd\roulette.jpg"
+            alt="The roulette, a big wheel with numbers all mixed up and a metal ball rolling in to pick a random number from 0 to 36."
+            title="The roulette. Super fancy!"
+          />
+
           <div class="text-block">
             <h4 class="mb-4 title is-5">
               You baited me with a small game and now you're pushing maths into
-              my head.
+              my head?
             </h4>
             <p>Yeah? Sorry... I guess?</p>
           </div>
@@ -97,12 +112,14 @@
           <div class="text-block">
             <h4 class="mb-4 title is-5">Is that really so bad?</h4>
             <p>
-              For the US roulette case, more than 5% is huge. It's like you're
-              basically auto-losing a game every 20 games, or paying an extra
-              fee to the casino to play, equal to one of your bets (assuming you
-              always bet the same amount). One way or another: it's a straight
-              loss. <br />To keep it the RPG way, imagine the Dungeon Master
-              says something like this: <br /><span class="is-italic">
+              It's definitely a good advantage for the casino. The fact that it
+              looks 'small' is part of its strength. For the US roulette case,
+              more than 5% is huge. It's like you're basically auto-losing a
+              game every 20 games, or paying an extra fee to the casino to play,
+              equal to one of your bets (assuming you always bet the same
+              amount). One way or another: it's a straight loss. <br />To keep
+              it the RPG way, imagine the Dungeon Master says something like
+              this: <br /><span class="is-italic">
                 "To survive the next situation, you need to bet on even or odd
                 for the D20 roll I will do."</span
               ><br />(A D20 means a die with 20 faces, 1 to 20). You think it's
@@ -114,11 +131,26 @@
             </p>
           </div>
 
+          <img
+            src="..\assets\fdnfd\d20_green.jpg"
+            alt="A green dice with 20 faces, often used in RPG."
+            title="A D20. Cosy fancy!"
+          />
+
           <div class="text-block">
             <h4 class="mb-4 title is-5">
               Please, do not make any more games. Ever.
             </h4>
-            <p>Can't promise anything.</p>
+            <p>Can't promise anything. 😁</p>
+          </div>
+
+          <div class="text-block">
+            <h4 class="mb-4 title is-6">Photos credits (no AI)</h4>
+            <p class="is-italic">
+              From Pexels.com <br />
+              Casino photos by Pavel Danilyuk <br />
+              Die photo by Armando Are
+            </p>
           </div>
 
           <button
@@ -136,7 +168,7 @@ import { ref } from "vue";
 
 const props = defineProps({
   modalButtonName: String,
-  isDisabled: Boolean
+  isDisabled: Boolean,
 });
 
 const isModalOpen = ref(false);

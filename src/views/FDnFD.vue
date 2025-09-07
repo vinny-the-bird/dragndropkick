@@ -17,7 +17,6 @@
                   <h5 class="subtitle is-6">BEST SCORES</h5>
                 </div>
                 <div>
-                  <!-- TODO: make it appears after a define numbers of game played? -->
                   <InfoModalFDnFD
                     :modalButtonName="modalButtonName"
                     :isDisabled="infoModalIsDisabled"
