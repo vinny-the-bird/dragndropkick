@@ -169,7 +169,7 @@ function nextRound() {
   description.value = result.value = "";
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  console.log("Prophecy. Right answer = ", correctDoor.value);
+  // console.log("Prophecy. Right answer = ", correctDoor.value);
 }
 
 function leaveDungeon() {
@@ -224,7 +224,7 @@ onMounted(() => {
   console.log("🚀 ~ modalButtonName.value:", modalButtonName.value);
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
-  console.log("Prophecy. Right answer = ", correctDoor.value);
+  // console.log("Prophecy. Right answer = ", correctDoor.value);
 });
 
 function rollDie() {
