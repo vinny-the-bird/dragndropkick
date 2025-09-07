@@ -12,7 +12,6 @@
 </template>
 
 <script setup>
-import ArkPullsCalculator from './views/ArkPullsCalculator.vue';
 import NavBar from './components/NavBar.vue';
 import { RouterView } from 'vue-router';
 </script>
