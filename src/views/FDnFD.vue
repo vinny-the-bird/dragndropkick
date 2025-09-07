@@ -221,7 +221,6 @@ onMounted(() => {
     modalButtonName = `${bestScores.value.length}/5`;
   }
 
-  console.log("🚀 ~ modalButtonName.value:", modalButtonName.value);
   rollDie();
   correctDoor.value = Math.floor(Math.random() * 2);
   // console.log("Prophecy. Right answer = ", correctDoor.value);
