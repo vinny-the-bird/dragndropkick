@@ -1,17 +1,29 @@
 <template>
   <div class="container global-frame">
-    <h1 class="title is-4">Arknights Pulls Calculator</h1><br>
+    <h1 class="title is-4">Arknights Pulls Calculator</h1>
+    <br />
     <!-- <div> -->
-      <h2 class="subtitle is-5">
-        <strong>How to use:</strong> Simply check your in-game currencies and
-        enter your numbers below. It will calculate your number of pulls on the
-        fly.
-      </h2>
+    <h2 class="subtitle is-5">
+      <strong>How to use:</strong> Simply check your in-game currencies and
+      enter your numbers below. It will calculate your number of pulls on the
+      fly.
+      <HelpModalArk :modalButtonName="modalButtonName" />
+    </h2>
     <!-- </div> -->
     <div class="box">
       <br />
       <div class="container">
-        <button class="button" @click="resetFields">Reset all fields</button>
+        <!-- <h3 class="subtitle is-4">Results</h3> -->
+        <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
+      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
+        <p class="is-size-5" v-if="totalPulls >= 300">
+          TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
+          {{ totalPulls - 300 }} extra pulls!
+        </p>
+        <p class="is-size-5" v-else="totalPulls >= 300">
+          TOTAL PULLS = {{ totalPulls }} /300 (Missing:
+          {{ 300 - totalPulls }} to reach 300)
+        </p>
       </div>
       <section class="section">
         <div class="container is-flex is-justify-content-left">
@@ -108,24 +120,16 @@
           </div>
         </div>
       </section>
-      <!-- <h3 class="subtitle is-4">Results</h3> -->
-      <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
-      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
-      <p class="is-size-5" v-if="totalPulls >= 300">
-        TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
-        {{ totalPulls - 300 }} extra pulls!
-      </p>
-      <p class="is-size-5" v-else="totalPulls >= 300">
-        TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
-        reach 300)
-      </p>
+      <button class="button" @click="resetFields">Reset all fields</button>
     </div>
   </div>
 </template>
 
 <script setup>
+import HelpModalArk from "@/components/HelpModalArk.vue";
 import { ref, computed } from "vue";
 
+const modalButtonName = "Where can I find my currencies?";
 const orundum = ref(0);
 const op = ref(0);
 const permitTen = ref(0);
