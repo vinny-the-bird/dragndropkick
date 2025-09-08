@@ -35,16 +35,16 @@
             <h4 class="mb-4 title is-5">
               Where can I find my Ten-roll and Single Headhunting Permits?
             </h4>
+            <p>
+              On the game's main screen, click on "Depot" in the bottom-right
+              corner of the screen. There, look up for Ten-roll and Single
+              Headhunting Permits.
+            </p><br>
             <img
               src="..\assets\ark\depot.jpg"
               alt="The screenshot shows the depot page, where all games' items are listed. This is where Ten-roll Headhunting Permit and Single Headhunting Permit are stored."
               title="Ten-roll Headhunting Permit and Single Headhunting Permit"
             />
-            <p>
-              On the game's main screen, click on "Depot" in the bottom-right
-              corner of the screen. There, look up for Ten-roll and Single
-              Headhunting Permits.
-            </p>
           </div>
 
           <div class="text-block">

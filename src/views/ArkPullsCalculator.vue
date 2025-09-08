@@ -13,7 +13,17 @@
     <div class="box">
       <br />
       <div class="container">
-        <button class="button" @click="resetFields">Reset all fields</button>
+        <!-- <h3 class="subtitle is-4">Results</h3> -->
+        <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
+      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
+        <p class="is-size-5" v-if="totalPulls >= 300">
+          TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
+          {{ totalPulls - 300 }} extra pulls!
+        </p>
+        <p class="is-size-5" v-else="totalPulls >= 300">
+          TOTAL PULLS = {{ totalPulls }} /300 (Missing:
+          {{ 300 - totalPulls }} to reach 300)
+        </p>
       </div>
       <section class="section">
         <div class="container is-flex is-justify-content-left">
@@ -110,17 +120,7 @@
           </div>
         </div>
       </section>
-      <!-- <h3 class="subtitle is-4">Results</h3> -->
-      <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
-      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
-      <p class="is-size-5" v-if="totalPulls >= 300">
-        TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
-        {{ totalPulls - 300 }} extra pulls!
-      </p>
-      <p class="is-size-5" v-else="totalPulls >= 300">
-        TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
-        reach 300)
-      </p>
+      <button class="button" @click="resetFields">Reset all fields</button>
     </div>
   </div>
 </template>
