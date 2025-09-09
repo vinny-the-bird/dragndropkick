@@ -1,6 +1,10 @@
 <template>
   <div class="container global-frame">
-    <h1 class="title is-4">Arknights Pulls Calculator</h1>
+    <h1 class="title is-4">
+      Arknights Pulls Calculator <br />
+      <span class="is-size-6"> (So Easy Even Yo Grandma Can Use It!) </span>
+    </h1>
+    <!-- <h3 class="sutitle is-5">So easy</h3> -->
     <br />
     <!-- <div> -->
     <h2 class="subtitle is-5">
@@ -13,18 +17,137 @@
     <div class="box">
       <br />
       <div class="container">
+        <!-- <div class="container is-flex"> -->
+        <!-- <div> -->
+        <div v-if="totalPulls < 50" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\1_lappy_0-49.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Is that so?"</p>
+          </div>
+        </div>
+
+        <div
+          v-else-if="totalPulls >= 50 && totalPulls < 100"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\2_shu_50-99.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Please feed me."</p>
+          </div>
+        </div>
+
+        <div
+          v-else-if="totalPulls >= 100 && totalPulls < 150"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\3_reed_100-149.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"It's fine. Everything gonna be fine."</p>
+          </div>
+        </div>
+
+        <div
+          v-else-if="totalPulls >= 150 && totalPulls < 200"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\4_pepe_150-199.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"We are more than halfway through! Let's keep it up!"</p>
+          </div>
+        </div>
+
+        <div
+          v-else-if="totalPulls >= 200 && totalPulls < 250"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\5_lemuen_200-249.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Reaching the last third, good job!"</p>
+          </div>
+        </div>
+        <div
+          v-else-if="totalPulls >= 250 && totalPulls < 300"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\6_vulpi_250-299.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Getting fancy now. "</p>
+          </div>
+        </div>
+
+        <div v-else-if="totalPulls >= 300" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\7_zuole_300+.png"
+              alt=""
+              title=""
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"We have achieved our goal! Congratulations!"</p>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div>
+            <p>adding text here</p>
+          </div> -->
+        <!-- </div> -->
+
         <!-- <h3 class="subtitle is-4">Results</h3> -->
         <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
       <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
         <p class="is-size-5" v-if="totalPulls >= 300">
-          TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
-          {{ totalPulls - 300 }} extra pulls!
+          TOTAL PULLS = {{ totalPulls }} /300 ({{ totalPulls - 300 }} extra
+          pulls!)
         </p>
         <p class="is-size-5" v-else="totalPulls >= 300">
-          TOTAL PULLS = {{ totalPulls }} /300 (Missing:
-          {{ 300 - totalPulls }} to reach 300)
+          TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }})
         </p>
       </div>
+
       <section class="section">
         <div class="container is-flex is-justify-content-left">
           <div class="fixed-grid">
