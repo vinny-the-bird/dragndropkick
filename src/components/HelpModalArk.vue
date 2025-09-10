@@ -54,8 +54,8 @@
               - Big events usually give away a special Ten-roll pulls usable
               only in the event banner. <br />
               - Every month in the shop, you can exchange 258 yellow
-              certificates for 38 pulls in total. <br />
-              - Every month in the shop, you can exchange 900 green certificates
+              certificates for 38 pulls in total as permits. <br />
+              - Every month in the shop, you can also exchange 900 green certificates
               for 2 Single Headhunting Permits. If you clean all phase 1, you
               can again buy 2 extra Single Headhunting Permits for 900 green
               certificates. <br />

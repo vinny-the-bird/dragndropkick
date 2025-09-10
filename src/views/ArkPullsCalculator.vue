@@ -4,21 +4,17 @@
       Arknights Pulls Calculator <br />
       <span class="is-size-6"> (So Easy Even Yo Grandma Can Use It!) </span>
     </h1>
-    <!-- <h3 class="sutitle is-5">So easy</h3> -->
     <br />
-    <!-- <div> -->
     <h2 class="subtitle is-5">
       <strong>How to use:</strong> Simply check your in-game currencies and
-      enter your numbers below. It will calculate your number of pulls on the
+      enter your numbers below. It will calculate your total number of pulls on the
       fly.
       <HelpModalArk :modalButtonName="modalButtonName" />
     </h2>
-    <!-- </div> -->
     <div class="box">
       <br />
       <div class="container">
-        <!-- <div class="container is-flex"> -->
-        <!-- <div> -->
+
         <div v-if="totalPulls < 50" class="container is-flex">
           <div>
             <img
@@ -130,11 +126,6 @@
             <p>"We have achieved our goal! Congratulations!"</p>
           </div>
         </div>
-        <!-- </div> -->
-        <!-- <div>
-            <p>adding text here</p>
-          </div> -->
-        <!-- </div> -->
 
         <!-- <h3 class="subtitle is-4">Results</h3> -->
         <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
