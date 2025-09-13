@@ -126,18 +126,6 @@
           </div>
         </div>
 
-        <!-- <h3 class="subtitle is-4">Results</h3> -->
-        <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
-        <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
-        <!-- <p class="is-size-5" v-if="totalPulls >= 300">
-          TOTAL PULLS = {{ totalPulls }} /300 ({{ totalPulls - 300 }} extra
-          pulls!)
-        </p>
-        <p class="is-size-5" v-else="totalPulls >= 300">
-          TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }})
-        </p>
-        <br /> -->
-
         <div class="columns">
           <div class="column is-half">
             <div class="progress-wrapper">
@@ -146,7 +134,12 @@
                 :class="{ 'is-max': safeTotalPulls >= 300 }"
                 :style="{ width: (safeTotalPulls / 300) * 100 + '%' }"
               >
-                {{ totalPulls > 0 ? totalPulls : "" }}
+                <div v-if="totalPulls > 300">
+                  {{ totalPulls }} (300+{{ totalPulls - 300 }})
+                </div>
+                <div v-else>
+                  {{ totalPulls > 0 ? totalPulls : "" }}
+                </div>
               </div>
             </div>
           </div>
