@@ -1,131 +1,270 @@
 <template>
-  <div class="box">
-    <h1 class="title is-4">Arknights Pulls Calculator</h1>
-    <div>
-      <p>
-        <strong>How to use:</strong> simply check your game and enter your
-        different currencies below. It will calculate your number of pulls on
-        the fly. <br>Windows Key + Left Arrow to half your screen (you can do that on Mac too), if your game is on your PC screen and/or if you have a small laptop.<br />A "reset all" button is also available, free of charge.
-        😁
-      </p>
-    </div>
+  <div class="container global-frame">
+    <h1 class="title is-4">
+      Arknights Pulls Calculator <br />
+      <span class="is-size-6"> (So Easy Even Yo Grandma Can Use It!) </span>
+    </h1>
     <br />
-    <div class="container">
-      <button class="button" @click="resetFields">Reset all fields</button>
-    </div>
-    <section class="section">
-      <div class="container is-flex is-justify-content-left">
-        <div class="fixed-grid">
-          <div class="grid">
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Orundum.webp"
-                  width="50%"
-                  alt="A picture of red square orundum, a currency from the game."
-                />
-                <label class="label" for="orundum">Orundum</label>
-                <input
-                  v-model.number="orundum"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
-              </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Originite_Prime.webp"
-                  width="50%"
-                  alt="A golden precious stone, the rarest of the in-game resources."
-                />
+    <h2 class="subtitle is-5">
+      <strong>How to use:</strong> Simply check your in-game currencies and
+      enter your numbers below. <br />
+      It will calculate your total number of pulls (rounded down) on the fly.
+    </h2>
+    <HelpModalArk :modalButtonName="modalButtonName" />
+    <div class="box">
+      <br />
+      <div class="container">
+        <div v-if="totalPulls < 50" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\1_lappy_0-49.png"
+              alt="Lappland is looking down on you, saying nothing."
+              title="Lappland is judging you"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Is that so?"</p>
+          </div>
+        </div>
 
-                <label class="label" for="op">Originite Prime</label>
-                <input
-                  v-model.number="op"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
-              </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Ten-roll_Headhunting_Permit.webp"
-                  width="50%"
-                  alt="A permit offering 10 headhunting pulls at once."
-                />
+        <div
+          v-else-if="totalPulls >= 50 && totalPulls < 100"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\2_shu_50-99.png"
+              alt="Shu, as a bean, holds an empty bowl."
+              title="Pretty please"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Please feed me."</p>
+          </div>
+        </div>
 
-                <label class="label" for="permitTen"
-                  >Ten-roll Headhunting Permit</label
-                >
-                <input
-                  v-model.number="permitTen"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
-              </div>
-            </div>
-            <div class="cell">
-              <div class="box">
-                <img
-                  src="\src\assets\Headhunting_Permit.webp"
-                  width="50%"
-                  alt="A single permit for headhunting, allows you to get one random operator."
-                />
+        <div
+          v-else-if="totalPulls >= 100 && totalPulls < 150"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\3_reed_100-149.png"
+              alt="Reed is drinking a cup of tea calmly while the whole background is on fire."
+              title="There's a solution. Probably."
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"It's fine. Everything gonna be fine."</p>
+          </div>
+        </div>
 
-                <label class="label" for="permitSingle"
-                  >Single Headhunting Permit</label
-                >
-                <input
-                  v-model.number="permitSingle"
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  step="1"
-                  inputmode="numeric"
-                  @keydown="blockInvalidInput"
-                  @paste="handlePaste"
-                />
+        <div
+          v-else-if="totalPulls >= 150 && totalPulls < 200"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\4_pepe_150-199.png"
+              alt="Pepe is pointing out some informations in a big book"
+              title="Pepe is checking your accounting books"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"We are more than halfway through! Let's keep it up!"</p>
+          </div>
+        </div>
+
+        <div
+          v-else-if="totalPulls >= 200 && totalPulls < 250"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\5_lemuen_200-249.png"
+              alt="Lemuen winks to you gently while saying 'Ok'"
+              title="Kinda good enough"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Reaching the last third, good job!"</p>
+          </div>
+        </div>
+        <div
+          v-else-if="totalPulls >= 250 && totalPulls < 300"
+          class="container is-flex"
+        >
+          <div>
+            <img
+              src="\src\assets\ark\6_vulpi_250-299.png"
+              alt="Vulpisfoglia is enjoying a glass a champagne"
+              title="Comfortable"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"Getting fancy now. "</p>
+          </div>
+        </div>
+
+        <div v-else-if="totalPulls >= 300 && totalPulls <600" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\7_zuole_300+.png"
+              alt="Zuole gives the thumbs up"
+              title="Success!"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"We have achieved our goal! Congratulations!"</p>
+          </div>
+        </div>
+
+        <div v-else-if="totalPulls >= 600" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\8_swire_600+.png"
+              alt="Swire is holding a suitcase full of gold"
+              title="Money calls money"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"It looks like we could reach an agreement together!"</p>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-half">
+            <div class="progress-wrapper">
+              <div
+                class="progress-bar"
+                :class="{ 'is-max': safeTotalPulls >= 300 }"
+                :style="{ width: (safeTotalPulls / 300) * 100 + '%' }"
+              >
+                <div v-if="totalPulls > 300">
+                  {{ totalPulls }} (300+{{ totalPulls - 300 }})
+                </div>
+                <div v-else>
+                  {{ totalPulls > 0 ? totalPulls : "" }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- <h3 class="subtitle">Results</h3> -->
 
-    <p>Total Pulls from Orundum + OP = {{ totalPullsFromOrundum }}</p>
-    <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p>
-    <p v-if="totalPulls >= 300">
-      TOTAL PULLS = {{ totalPulls }} /300 - Congrats! You have
-      {{ totalPulls - 300 }} extra pulls!
-    </p>
-    <p v-else="totalPulls >= 300">
-      TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }} to
-      reach 300)
-    </p>
+      <section class="section">
+        <div class="container is-flex is-justify-content-left">
+          <div class="fixed-grid">
+            <div class="grid">
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Orundum.webp"
+                    width="50%"
+                    alt="A picture of red square orundum, a currency from the game."
+                  />
+                  <label class="label" for="orundum">Orundum</label>
+                  <input
+                    v-model.number="orundum"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
+              </div>
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Originite_Prime.webp"
+                    width="50%"
+                    alt="A golden precious stone, the rarest of the in-game resources."
+                  />
+
+                  <label class="label" for="op">Originite Prime</label>
+                  <input
+                    v-model.number="op"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
+              </div>
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Ten-roll_Headhunting_Permit.webp"
+                    width="50%"
+                    alt="A permit offering 10 headhunting pulls at once."
+                  />
+
+                  <label class="label" for="permitTen"
+                    >Ten-roll Headhunting Permit</label
+                  >
+                  <input
+                    v-model.number="permitTen"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
+              </div>
+              <div class="cell">
+                <div class="box">
+                  <img
+                    src="\src\assets\Headhunting_Permit.webp"
+                    width="50%"
+                    alt="A single permit for headhunting, allows you to get one random operator."
+                  />
+
+                  <label class="label" for="permitSingle"
+                    >Single Headhunting Permit</label
+                  >
+                  <input
+                    v-model.number="permitSingle"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    @keydown="blockInvalidInput"
+                    @paste="handlePaste"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button class="button" @click="resetFields">Reset all fields</button>
+    </div>
   </div>
 </template>
 
 <script setup>
+import HelpModalArk from "@/components/HelpModalArk.vue";
 import { ref, computed } from "vue";
 
+const modalButtonName = "Where can I find my currencies?";
 const orundum = ref(0);
 const op = ref(0);
 const permitTen = ref(0);
@@ -148,6 +287,11 @@ const totalPulls = computed(() => {
   return (
     (totalPullsFromOrundum.value || 0) + (totalPullsFromPermits.value || 0)
   );
+});
+
+const safeTotalPulls = computed(() => {
+  // clamp only for bar width
+  return Math.max(0, Math.min(300, totalPulls.value));
 });
 
 function resetFields() {
@@ -182,4 +326,32 @@ function handlePaste(e) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.global-frame {
+  padding: 0rem 2rem;
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 1.5rem;
+  background-color: #eee; /* similar to Bulma’s progress background */
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: hsl(141, 71%, 48%); /* Bulma "is-success" green */
+  /* width: 0%; */
+  transition: width 0.5s ease; /* <-- smooth animation */
+  display: flex; /* center text horizontally */
+  align-items: center; /* center text vertically */
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.progress-bar.is-max {
+  background-color: gold;
+}
+</style>
