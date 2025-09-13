@@ -18,8 +18,8 @@
           <div>
             <img
               src="\src\assets\ark\1_lappy_0-49.png"
-              alt=""
-              title=""
+              alt="Lappland is looking down on you, saying nothing."
+              title="Lappland is judging you"
               class="image is-128x128"
             />
           </div>
@@ -35,8 +35,8 @@
           <div>
             <img
               src="\src\assets\ark\2_shu_50-99.png"
-              alt=""
-              title=""
+              alt="Shu, as a bean, holds an empty bowl."
+              title="Pretty please"
               class="image is-128x128"
             />
           </div>
@@ -52,8 +52,8 @@
           <div>
             <img
               src="\src\assets\ark\3_reed_100-149.png"
-              alt=""
-              title=""
+              alt="Reed is drinking a cup of tea calmly while the whole background is on fire."
+              title="There's a solution. Probably."
               class="image is-128x128"
             />
           </div>
@@ -69,8 +69,8 @@
           <div>
             <img
               src="\src\assets\ark\4_pepe_150-199.png"
-              alt=""
-              title=""
+              alt="Pepe is pointing out some informations in a big book"
+              title="Pepe is checking your accounting books"
               class="image is-128x128"
             />
           </div>
@@ -86,8 +86,8 @@
           <div>
             <img
               src="\src\assets\ark\5_lemuen_200-249.png"
-              alt=""
-              title=""
+              alt="Lemuen winks to you gently while saying 'Ok'"
+              title="Kinda good enough"
               class="image is-128x128"
             />
           </div>
@@ -102,8 +102,8 @@
           <div>
             <img
               src="\src\assets\ark\6_vulpi_250-299.png"
-              alt=""
-              title=""
+              alt="Vulpisfoglia is enjoying a glass a champagne"
+              title="Comfortable"
               class="image is-128x128"
             />
           </div>
@@ -112,17 +112,31 @@
           </div>
         </div>
 
-        <div v-else-if="totalPulls >= 300" class="container is-flex">
+        <div v-else-if="totalPulls >= 300 && totalPulls <600" class="container is-flex">
           <div>
             <img
               src="\src\assets\ark\7_zuole_300+.png"
-              alt=""
-              title=""
+              alt="Zuole gives the thumbs up"
+              title="Success!"
               class="image is-128x128"
             />
           </div>
           <div>
             <p>"We have achieved our goal! Congratulations!"</p>
+          </div>
+        </div>
+
+        <div v-else-if="totalPulls >= 600" class="container is-flex">
+          <div>
+            <img
+              src="\src\assets\ark\8_swire_600+.png"
+              alt="Swire is holding a suitcase full of gold"
+              title="Money calls money"
+              class="image is-128x128"
+            />
+          </div>
+          <div>
+            <p>"It looks like we could reach an agreement together!"</p>
           </div>
         </div>
 
