@@ -7,14 +7,13 @@
     <br />
     <h2 class="subtitle is-5">
       <strong>How to use:</strong> Simply check your in-game currencies and
-      enter your numbers below. It will calculate your total number of pulls on the
-      fly.
-      <HelpModalArk :modalButtonName="modalButtonName" />
+      enter your numbers below. <br />
+      It will calculate your total number of pulls (rounded down) on the fly.
     </h2>
+    <HelpModalArk :modalButtonName="modalButtonName" />
     <div class="box">
       <br />
       <div class="container">
-
         <div v-if="totalPulls < 50" class="container is-flex">
           <div>
             <img
@@ -129,14 +128,29 @@
 
         <!-- <h3 class="subtitle is-4">Results</h3> -->
         <!-- <p>Total Pulls from Orundum + Originite Prime = {{ totalPullsFromOrundum }}</p>
-      <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
-        <p class="is-size-5" v-if="totalPulls >= 300">
+        <p>Total Pulls from Permits = {{ totalPullsFromPermits }}</p> -->
+        <!-- <p class="is-size-5" v-if="totalPulls >= 300">
           TOTAL PULLS = {{ totalPulls }} /300 ({{ totalPulls - 300 }} extra
           pulls!)
         </p>
         <p class="is-size-5" v-else="totalPulls >= 300">
           TOTAL PULLS = {{ totalPulls }} /300 (Missing: {{ 300 - totalPulls }})
         </p>
+        <br /> -->
+
+        <div class="columns">
+          <div class="column is-half">
+            <div class="progress-wrapper">
+              <div
+                class="progress-bar"
+                :class="{ 'is-max': safeTotalPulls >= 300 }"
+                :style="{ width: (safeTotalPulls / 300) * 100 + '%' }"
+              >
+                {{ totalPulls > 0 ? totalPulls : "" }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <section class="section">
@@ -268,6 +282,11 @@ const totalPulls = computed(() => {
   );
 });
 
+const safeTotalPulls = computed(() => {
+  // clamp only for bar width
+  return Math.max(0, Math.min(300, totalPulls.value));
+});
+
 function resetFields() {
   orundum.value = 0;
   op.value = 0;
@@ -303,5 +322,29 @@ function handlePaste(e) {
 <style scoped>
 .global-frame {
   padding: 0rem 2rem;
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 1.5rem;
+  background-color: #eee; /* similar to Bulma’s progress background */
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: hsl(141, 71%, 48%); /* Bulma "is-success" green */
+  /* width: 0%; */
+  transition: width 0.5s ease; /* <-- smooth animation */
+  display: flex; /* center text horizontally */
+  align-items: center; /* center text vertically */
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.progress-bar.is-max {
+  background-color: gold;
 }
 </style>
