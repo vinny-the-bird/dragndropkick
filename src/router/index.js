@@ -6,6 +6,7 @@ import ArkPullsCalculator from "@/views/ArkPullsCalculator.vue";
 import FDnFD from "@/views/FDnFD.vue";
 import TheLongestDay from "@/views/TheLongestDay.vue";
 import Testlab from "@/views/Testlab.vue";
+import JetPemRadio from "@/views/JetPemRadio.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -24,6 +25,11 @@ const routes = [
     path: "/the-longest-day",
     name: "The Longest Day",
     component: TheLongestDay,
+  },
+  {
+    path: "/jet-pem-radio",
+    name: "Jet Pem Radio",
+    component: JetPemRadio,
   },
   {
     path: "/testlab",

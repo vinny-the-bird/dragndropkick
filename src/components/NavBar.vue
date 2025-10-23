@@ -32,6 +32,9 @@
         <RouterLink class="navbar-item" to="/fast-dungeon-and-furious-dragon"
           >Fast Dungeon & Furious Dragon</RouterLink
         >
+        <RouterLink class="navbar-item" to="/jet-pem-radio"
+          >Jet Pem Radio</RouterLink
+        >
 
         <RouterLink class="navbar-item" to="/the-longest-day"
           ><img
