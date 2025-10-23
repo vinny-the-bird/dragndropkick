@@ -20,21 +20,18 @@
 </template>
 
 <script setup>
-// TODO: add tick every second = make it a dynamic clock
-const today = new Date();
-const currentTime = Date.now();
+import { ref, onMounted, onUnmounted } from "vue";
 
-const deadlineExam = new Date(2026, 4, 26, 18);
-const deadlineCda = new Date(2025, 10, 3, 18);
+const today = ref(new Date().toLocaleString());
+const remainingTimeCda = ref("");
+const remainingtTimeExam = ref("");
 
-const msExam = deadlineExam - currentTime;
-const msCda = deadlineCda - currentTime;
-
-const remainingtTimeExam = formatRemainingTime(msExam);
-const remainingTimeCda = formatRemainingTime(msCda);
+const deadlineExam = new Date(2026, 4, 26);
+const deadlineCda = new Date(2026, 0, 29);
 
 function formatRemainingTime(ms) {
   const totalSeconds = Math.floor(ms / 1000);
+  if (totalSeconds < 0) return "Deadline passed";
 
   const days = Math.floor(totalSeconds / (3600 * 24));
   const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
@@ -46,17 +43,33 @@ function formatRemainingTime(ms) {
   if (hours) displayedDate.push(`${hours} hour${hours !== 1 ? "s" : ""}`);
   if (minutes)
     displayedDate.push(`${minutes} minute${minutes !== 1 ? "s" : ""}`);
-  if (seconds)
+  if (seconds || displayedDate.length === 0)
     displayedDate.push(`${seconds} second${seconds !== 1 ? "s" : ""}`);
 
   return displayedDate.join(", ");
 }
+
+function updateClock() {
+  const now = Date.now();
+  today.value = new Date(now).toLocaleString();
+  remainingTimeCda.value = formatRemainingTime(deadlineCda - now);
+  remainingtTimeExam.value = formatRemainingTime(deadlineExam - now);
+}
+
+let intervalId;
+
+onMounted(() => {
+  updateClock();
+  intervalId = setInterval(updateClock, 1000);
+});
+
+onUnmounted(() => {
+  clearInterval(intervalId);
+});
 </script>
 
 <style scoped>
-
 .global-frame {
   padding: 0rem 2rem;
 }
-
 </style>
